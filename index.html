@@ -6,10 +6,19 @@
     <title>GradeLite</title>
     <link rel="icon" href="icon.png">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script>
+        window.scrollTo(0,0)
+        location.href="#top"
+
+    </script>
     <style>
         /* Google Fonts */
-
 @import url('https://fonts.googleapis.com/css2?family=Cabin+Condensed:wght@600&display=swap');
+
+
+::-webkit-scrollbar{
+    background-color:#d01a30;
+}
 
 *{
     /* Universal */
@@ -35,7 +44,8 @@ gold - #fcb414
 /* Body */
 
 body{
-    background-color:whitesmoke;
+    background-color:rgba(208, 26, 48,0.2);
+    border-radius:10px;
 }
 
 /* Navbar */
@@ -240,7 +250,12 @@ input[type=button]:focus{
     color:white;
 }
     
-@media (min-width : 400px) and (max-width:920px){
+
+footer{
+    background-color:#d01a30;
+    letter-spacing:2px;
+}
+@media (max-width:900px){
 
     /* Google Fonts */
 
@@ -263,7 +278,7 @@ body{
     color:white;
     background-color:#d01a30;
     height:90px;
-    width:100vw;
+    width:100%;
     display:flex;
     flex-direction:row;
     justify-content:space-between;
@@ -283,6 +298,19 @@ body{
     background-image:url('gradient_star_award_ribbon.jpg');
     background-size:cover;
     border-radius:50%;
+}
+
+
+.logo{
+    border-radius:50%;
+}
+.navbar{
+    height:100%;
+    color:white;
+}
+.navbar h1{
+    color:white;
+    font-size:30px;
 }
 
 .selection{
@@ -457,6 +485,10 @@ input[type=button]:focus{
     color:white;
 }
 
+footer{
+    background-color:#d01a30;
+    letter-spacing:2px;
+}
 
 }
     </style>
@@ -465,10 +497,14 @@ input[type=button]:focus{
 
     <!-- NavBar -->
 
-    <nav class="navbar">
-        <h1>GradeLite</h1>
-        <div class="logo"></div>
-    </nav>
+<!-- As a link -->
+<nav class="navbar">
+    <h1>
+        GradeLite
+    </h1>
+    <img src="gradient_star_award_ribbon.jpg" alt="Logo" width="45" class="d-inline-block align-text-top logo">
+
+  </nav>
 
     <!-- Select Criteria -->
     <div class="selection">
@@ -478,17 +514,8 @@ input[type=button]:focus{
     </div>
 
     <div class="select-criteria">
-        <form>
+        <form netlify>
             <table>
-                <tr>
-                    <td>
-                        <label for="id">* Your Id Number</label>
-                    </td>
-        
-                    <td>
-                            <input type="text" id="id" maxlength="7" required>
-                    </td>
-                </tr>
                 <tr>
                     <td>
                         <label for="branch">* Select Branch</label>
@@ -763,15 +790,10 @@ input[type=button]:focus{
             </tr>
     </table>
 <!-- Footer -->
-<footer class="navbar">
-    <!-- Copyright -->
-    <a href="#top">
-        GradeLite &copy; 2023
-    </a>
-    <p>
-        Made with &hearts; by SreeCharan
-    </p>  
-  </footer>
+<footer class="text-white text-center py-3">
+    <p>&copy; 2023 GradeLite. All Rights Reserved</p>
+    <p>Made with &hearts; by Sree Charan</p>
+</footer>
   <!-- Footer -->
 </body>
 
@@ -794,31 +816,17 @@ subject9 = document.getElementById("Subject9")
 
 location.href="#top";
 
-function validateForm(){
-    var x = document.getElementById("id").value;
-    if (x == "") {
-      alert("ID Number must be filled out");
-      document.getElementById("id").style.border="3px solid red";
-      return false;
-    }
-    else{
-        return true
-    }
-}
-
 
 function validate(){
-        if (validateForm() == true){
-            document.getElementById("h2").style.display="block";
-            document.getElementById("subjects").style.opacity=1;
-            document.getElementById("subjects").style.display="block";
-            document.getElementById("h2").style.opacity=1;
-            document.getElementById("subjects").style.transition="0.4s ease-in-out";
-            document.getElementById("h2").style.transition="0.4s ease-in-out";
+        document.getElementById("h2").style.display="block";
+        document.getElementById("subjects").style.opacity=1;
+        document.getElementById("subjects").style.display="block";
+        document.getElementById("h2").style.opacity=1;
+        document.getElementById("subjects").style.transition="0.4s ease-in-out";
+        document.getElementById("h2").style.transition="0.4s ease-in-out";
 
             window.scrollTo(100,950);
 
-            id = document.getElementById("id").value;
 
             branch = document.getElementById("branch").value;
 
@@ -983,14 +991,15 @@ function validate(){
                 document.getElementById("9").style.display="none";
 
             }
-            else{
-                alert("Sorry Only for E1 Sem-1")
-            }
         }
         else{
-            location.href="#top"
-        }
-        }
+                alert("Sorry Only for E1 Sem-1")
+                document.getElementById("h2").style.display="none";
+                document.getElementById("subjects").style.opacity=0;
+                document.getElementById("subjects").style.display="none";
+                document.getElementById("h2").style.opacity=0;
+                location.href="index.html"
+            }
     }
 
 
