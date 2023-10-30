@@ -9,7 +9,10 @@
     <script>
         window.scrollTo(0,0)
         location.href="#top"
-
+        window.addEventListener('contextmenu', function (e) {
+            e.preventDefault();
+            alert("Don't try to Inspect")
+        });
     </script>
     <style>
         /* Google Fonts */
