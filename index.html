@@ -264,6 +264,39 @@ footer{
 
 @import url('https://fonts.googleapis.com/css2?family=Cabin+Condensed:wght@600&display=swap');
 
+body {
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+  }
+  
+  /* Add an overlay div to capture touch and swipe events */
+  .overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none; /* Allow events to pass through */
+  }
+  
+  /* Apply a horizontal scroll effect when the user swipes right */
+  .overlay::before {
+    content: "";
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to right, transparent 0%, transparent 20%, rgba(255, 255, 255, 0.8) 100%); /* Adjust the gradient to your liking */
+    position: absolute;
+    top: 0;
+    left: 0;
+    pointer-events: auto; /* Capture events on this overlay */
+  }
+  
+  /* Disable scrolling when the user swipes right */
+  body.no-scroll {
+    overflow-x: hidden !important;
+  }
+  
+
+
 *{
     /* Universal */
     font-family: 'Cabin Condensed', sans-serif;
