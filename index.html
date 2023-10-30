@@ -1,0 +1,1038 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GradeLite</title>
+    <link rel="icon" href="icon.png">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <style>
+        /* Google Fonts */
+
+@import url('https://fonts.googleapis.com/css2?family=Cabin+Condensed:wght@600&display=swap');
+
+*{
+    /* Universal */
+    font-family: 'Cabin Condensed', sans-serif;
+    /* Applies to entire webpage*/
+}
+
+/* 
+
+Image Gradients
+
+red - #d01a30
+gold - #fcb414
+*/
+
+
+.navbar a{
+    text-decoration:none;
+    color:white;
+}
+
+
+/* Body */
+
+body{
+    background-color:whitesmoke;
+}
+
+/* Navbar */
+
+.navbar{
+    color:white;
+    background-color:#d01a30;
+    height:auto;
+}
+
+.navbar h1{
+    font-size:40px;
+}
+
+.navbar h1::first-letter{
+    font-size:60px;
+}
+
+.logo{
+    width:55px;
+    height:55px;
+    background-image:url('gradient_star_award_ribbon.jpg');
+    background-size:cover;
+    border-radius:50%;
+    margin:10px;
+}
+
+
+
+.select-criteria form{
+    margin-left:200px;
+    text-align:left;
+    padding:10px;
+}
+
+
+
+.selection{
+    width:auto;
+    height:auto;
+    border-radius:10px;
+}
+
+.selection h1{
+    margin:10px 0px 0px 100px;
+    color:#d01a30;
+}
+
+form{
+    text-align: center;
+    margin:10px 500px;
+    font-size:20px;
+}
+
+form table{
+    width:500px;
+}
+form table td{
+    padding:10px;
+}
+
+.select-criteria input[type=text]{
+    width:300px;
+    height:24px;
+    border:none;
+    background-color:whitesmoke;
+    transition: 0.1s ease-in-out;
+    -webkit-transition:0.1s;
+    outline:none;
+    padding:10px;
+    text-align: center;
+    padding:2px;
+}
+
+::-webkit-input-placeholder{
+    font-size:18px;
+    color: #d01a30;
+}
+
+input[type=text]:focus{
+    border: 3px solid #d01a30;
+}
+
+select{
+    width: 300px;
+    height: 24px;
+    border: none;
+    background-color: whitesmoke;
+    transition: 0.1s ease-in-out;
+    -webkit-transition: 0.1s;
+    outline: none;
+    padding: 1px;
+    text-align: center;
+    padding:0px 10px;
+    transition:0.3s ease;
+}
+
+
+select:focus{
+    border: 3px solid #d01a30;
+}
+
+
+
+input[type=button]{
+    width:300px;
+    height:auto;
+    border:none;
+    background-color:whitesmoke;
+    transition: 0.1s ease-in-out;
+    -webkit-transition:0.1s;
+    outline:none;
+    padding:10px;
+    text-align: center;
+    padding:2px;
+    transition:0.4s ease-in-out;
+    padding:2px;
+}
+
+
+input[type=button]:hover{
+    background-color:#d01a30;
+    color:white;
+    border:2px solid white;
+}
+
+
+input[type=button]:focus{
+    border: 3px solid #d01a30;
+}
+
+#h2{
+    padding:20px 0px 0px 100px;
+    color:#d01a30;
+    font-weight:900;
+    display:none;
+    font-size:40px;
+    opacity:0;
+}
+
+.subjects{
+    margin:50px 100px 10px 200px;
+    height:auto;
+    width:10vw;
+    display:flex;
+    flex-direction:row;
+    justify-content:space-between;
+    opacity:0;
+}
+
+
+.subjects td p{
+    width:350px;
+    padding:10px;
+}
+
+#calc{
+    margin-left:150px;
+    height:30px;
+}
+
+.subjects select{
+    width: 200px;
+    height: 24px;
+    border: none;
+    background-color: whitesmoke;
+    transition: 0.1s ease-in-out;
+    -webkit-transition: 0.1s;
+    outline: none;
+    padding: 1px;
+    text-align: center;
+    padding:2px;
+}
+
+
+#result{
+    width:300px;
+    margin:100px 100px 100px 500px;
+    font-size:50px;
+    color:#d01a30;
+}
+
+#mobile-result{
+    display:none;
+}
+
+
+.page-footer{
+    color:white;
+    background-color:#d01a30;
+    color:white;
+    display:flex;
+    flex-direction:row;
+    justify-content:space-between;
+    align-items:center;
+    padding-top:20px;
+    font-size:20px;
+}
+
+.page-footer a{
+    text-decoration:none;
+    color:white;
+}
+    
+@media (min-width : 400px) and (max-width:920px){
+
+    /* Google Fonts */
+
+@import url('https://fonts.googleapis.com/css2?family=Cabin+Condensed:wght@600&display=swap');
+
+*{
+    /* Universal */
+    font-family: 'Cabin Condensed', sans-serif;
+    /* Applies to entire webpage*/
+}
+
+body{
+    background-color:rgba(208, 26, 48,0.2);
+    border-radius:10px;
+}
+
+/* Navbar */
+
+.navbar{
+    color:white;
+    background-color:#d01a30;
+    height:90px;
+    width:100vw;
+    display:flex;
+    flex-direction:row;
+    justify-content:space-between;
+}
+
+.navbar h1{
+    font-size:30px;
+}
+
+.navbar h1::first-letter{
+    font-size:40px;
+}
+
+.logo{
+    width:55px;
+    height:55px;
+    background-image:url('gradient_star_award_ribbon.jpg');
+    background-size:cover;
+    border-radius:50%;
+}
+
+.selection{
+    width:auto;
+    height:auto;
+    border-radius:10px;
+}
+
+.selection h1{
+    margin:10px;
+    color:#d01a30;
+}
+
+.select-criteria form{
+    margin-left:10px;
+    text-align:left;
+    padding:1px;
+}
+
+form{
+    text-align: center;
+    font-size:18px;
+}
+
+form table{
+    width:410px;
+}
+form table td{
+    padding:5px;
+}
+
+.select-criteria input[type=text]{
+    width:200px;
+    height:24px;
+    border:none;
+    background-color:whitesmoke;
+    transition: 0.1s ease-in-out;
+    -webkit-transition:0.1s;
+    outline:none;
+    padding:10px;
+    text-align: center;
+    padding:2px;
+}
+
+::-webkit-input-placeholder{
+    font-size:18px;
+    color: #d01a30;
+}
+
+input[type=text]:focus{
+    border: 3px solid #d01a30;
+}
+
+select{
+    width:200px;
+    height:24px;
+    border: none;
+    background-color: whitesmoke;
+    transition: 0.1s ease-in-out;
+    -webkit-transition: 0.1s;
+    outline: none;
+    padding: 1px;
+    text-align: center;
+    padding:2px;
+    transition:0.4s ease-in-out;
+}
+
+
+select:focus{
+    border: 3px solid #d01a30;
+}
+
+input[type=button]{
+    width:200px;
+    height:auto;
+    border:none;
+    background-color:#d01a30;
+    transition: 0.1s ease-in-out;
+    -webkit-transition:0.1s;
+    outline:none;
+    padding:10px;
+    text-align: center;
+    padding:2px;
+    transition:0.4s ease-in-out;
+    padding:2px;
+    color:white;
+    margin:30px;
+}
+
+
+input[type=button]:hover{
+    background-color:#d01a30;
+    color:white;
+    border:2px solid white;
+}
+
+
+input[type=button]:focus{
+    border: 3px solid #d01a30;
+}
+
+#h2{
+    padding:20px 0px 0px 10px;
+    color:#d01a30;
+    font-weight:900;
+    font-style:oblique;
+    display:none;
+    opacity:0;
+}
+
+.subjects{
+    width:400px;
+    height:auto;
+    margin:50px 100px 10px 10px;
+    height:auto;
+    opacity:0;
+}
+
+#subjects{
+    display:none;
+}
+
+.subjects table{
+    width:320px;
+}
+
+
+.subjects td p{
+    width:220px;
+    padding:5px;
+    font-size:18px;
+}
+
+#calc{
+    margin-left:10px;
+    height:40px;
+}
+
+.subjects select{
+    width:150px;
+    height: 24px;
+    border: none;
+    background-color: whitesmoke;
+    transition: 0.1s ease-in-out;
+    -webkit-transition: 0.1s;
+    outline: none;
+    padding: 1px;
+    margin-left:10px;
+    text-align: center;
+    padding:2px;
+}
+
+
+#result{
+    width:300px;
+    margin:100px 100px 100px 500px;
+    font-size:50px;
+    color:#d01a30;
+    display:none;
+}
+
+#mobile-result{
+    margin:-20px 150px 50px 130px;
+    font-size:30px;
+    display:block;
+}
+
+
+
+.navbar a{
+    text-decoration:none;
+    color:white;
+}
+
+
+}
+    </style>
+</head>
+<body id="top">
+
+    <!-- NavBar -->
+
+    <nav class="navbar">
+        <h1>GradeLite</h1>
+        <div class="logo"></div>
+    </nav>
+
+    <!-- Select Criteria -->
+    <div class="selection">
+        <h1>
+            # Select Criteria
+        </h1>
+    </div>
+
+    <div class="select-criteria">
+        <form>
+            <table>
+                <tr>
+                    <td>
+                        <label for="id">* Your Id Number</label>
+                    </td>
+        
+                    <td>
+                            <input type="text" id="id" maxlength="7" required>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="branch">* Select Branch</label>
+                    </td>
+        
+                    <td>
+                        <select id="branch">
+                            <option>CSE</option>
+                            <option>ECE</option>
+                            <option>EEE</option>
+                            <option>MECH</option>
+                            <option>CIVIL</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="year">* Year</label>
+                    </td>
+        
+                    <td>
+                        <select id="year">
+                            <option>E1</option>
+                            <option>E2</option>
+                            <option>E3</option>
+                            <option>E4</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="sem">* Semester</label>
+                    </td>
+        
+                    <td>
+                        <select id="sem">
+                            <option>Sem - 1</option>
+                            <option>Sem - 2</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="3">
+                        <a href="#subjects">
+                        <input type="button" value="Submit" onclick="validate()">
+                        </a>
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+
+    <!-- Year Specification -->
+
+    <h2 id="h2">
+        #CSE / E1 /SEM - 1 
+    </h2>
+
+    <!-- Grades Choosig Table -->
+
+    <table>
+        <tr>
+            <td>
+                <div class="subjects" id="subjects">
+                    <table>
+                        <tr>
+                            <td>
+                                <label for="subject1">
+                                    <p id="Subject1">
+                
+                                    </p>
+                                </label>
+                            </td>
+                
+                            <td>
+                                <select id="subject1">
+                                    <option value="10">Ex</option>
+                                    <option value="9">A</option>
+                                    <option value="8">B</option>
+                                    <option value="7">C</option>
+                                    <option value="6">D</option>
+                                    <option value="5">E</option>
+                                    <option value="4">R</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label for="subject2">
+                                    <p id="Subject2">
+                
+                                    </p>
+                                </label>
+                            </td>
+                
+                            <td>
+                                <select id="subject2">
+                                    <option value="10">Ex</option>
+                                    <option value="9">A</option>
+                                    <option value="8">B</option>
+                                    <option value="7">C</option>
+                                    <option value="6">D</option>
+                                    <option value="5">E</option>
+                                    <option value="4">R</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label for="subject3">
+                                    <p id="Subject3">
+                
+                                    </p>
+                                </label>
+                            </td>
+                
+                            <td>
+                                <select id="subject3">
+                                    <option value="10">Ex</option>
+                                    <option value="9">A</option>
+                                    <option value="8">B</option>
+                                    <option value="7">C</option>
+                                    <option value="6">D</option>
+                                    <option value="5">E</option>
+                                    <option value="4">R</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label for="subject4">
+                                    <p id="Subject4">
+                
+                                    </p>
+                                </label>
+                            </td>
+                
+                            <td>
+                                <select id="subject4">
+                                    <option value="10">Ex</option>
+                                    <option value="9">A</option>
+                                    <option value="8">B</option>
+                                    <option value="7">C</option>
+                                    <option value="6">D</option>
+                                    <option value="5">E</option>
+                                    <option value="4">R</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label for="subject5">
+                                    <p id="Subject5">
+                
+                                    </p>
+                                </label>
+                            </td>
+                
+                            <td>
+                                <select id="subject5">
+                                    <option value="10">Ex</option>
+                                    <option value="9">A</option>
+                                    <option value="8">B</option>
+                                    <option value="7">C</option>
+                                    <option value="6">D</option>
+                                    <option value="5">E</option>
+                                    <option value="4">R</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label for="subject6">
+                                    <p id="Subject6">
+                
+                                    </p>
+                                </label>
+                            </td>
+                
+                            <td>
+                                <select id="subject6">
+                                    <option value="10">Ex</option>
+                                    <option value="9">A</option>
+                                    <option value="8">B</option>
+                                    <option value="7">C</option>
+                                    <option value="6">D</option>
+                                    <option value="5">E</option>
+                                    <option value="4">R</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label for="subject7">
+                                    <p id="Subject7">
+                
+                                    </p>
+                                </label>
+                            </td>
+                
+                            <td>
+                                <select id="subject7">
+                                    <option value="10">Ex</option>
+                                    <option value="9">A</option>
+                                    <option value="8">B</option>
+                                    <option value="7">C</option>
+                                    <option value="6">D</option>
+                                    <option value="5">E</option>
+                                    <option value="4">R</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr id="8">
+                            <td>
+                                <label for="subject8">
+                                    <p id="Subject8">
+                
+                                    </p>
+                                </label>
+                            </td>
+                
+                            <td>
+                                <select id="subject8">
+                                    <option value="10">Ex</option>
+                                    <option value="9">A</option>
+                                    <option value="8">B</option>
+                                    <option value="7">C</option>
+                                    <option value="6">D</option>
+                                    <option value="5">E</option>
+                                    <option value="4">R</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr id="9">
+                            <td>
+                                <label for="subject9">
+                                    <p id="Subject9">
+                
+                                    </p>
+                                </label>
+                            </td>
+                            <td>
+                                <select id="subject9">
+                                    <option value="10">Ex</option>
+                                    <option value="9">A</option>
+                                    <option value="8">B</option>
+                                    <option value="7">C</option>
+                                    <option value="6">D</option>
+                                    <option value="5">E</option>
+                                    <option value="4">R</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">
+                                <input type="button" id="calc" value="Calculate" onclick="calc_gpa()">
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </td>
+            <td>
+                <p id="result"></p>
+            </td>
+        </tr>
+            <tr>
+                <td>
+                    <p id="mobile-result">
+                        
+                    </p>
+                </td>
+            </tr>
+    </table>
+<!-- Footer -->
+<footer class="navbar">
+    <!-- Copyright -->
+    <a href="#top">
+        GradeLite &copy; 2023
+    </a>
+    <p>
+        Made with &hearts; by SreeCharan
+    </p>  
+  </footer>
+  <!-- Footer -->
+</body>
+
+<script>
+
+window.scrollTo(0,0);
+
+//Subject Names
+
+subject1 = document.getElementById("Subject1")
+subject2 = document.getElementById("Subject2")
+subject3 = document.getElementById("Subject3")
+subject4 = document.getElementById("Subject4")
+subject5 = document.getElementById("Subject5")
+subject6 = document.getElementById("Subject6")
+subject7 = document.getElementById("Subject7")
+subject8 = document.getElementById("Subject8")
+subject9 = document.getElementById("Subject9")
+
+
+location.href="#top";
+
+function validateForm(){
+    var x = document.getElementById("id").value;
+    if (x == "") {
+      alert("ID Number must be filled out");
+      document.getElementById("id").style.border="3px solid red";
+      return false;
+    }
+    else{
+        return true
+    }
+}
+
+
+function validate(){
+        if (validateForm() == true){
+            document.getElementById("h2").style.display="block";
+            document.getElementById("subjects").style.opacity=1;
+            document.getElementById("subjects").style.display="block";
+            document.getElementById("h2").style.opacity=1;
+            document.getElementById("subjects").style.transition="0.4s ease-in-out";
+            document.getElementById("h2").style.transition="0.4s ease-in-out";
+
+            window.scrollTo(100,950);
+
+            id = document.getElementById("id").value;
+
+            branch = document.getElementById("branch").value;
+
+            year = document.getElementById("year").value;
+
+            sem = document.getElementById("sem").value;
+            
+            data =" #"+ branch + "   " + "   /   " + year + "   " + "   /   " + sem
+
+                 
+
+        if (year == 'E1' && sem == 'Sem - 1'){
+
+            document.getElementById("h2").innerHTML = data; 
+
+            if (branch == 'CSE' && year == 'E1' && sem == 'Sem - 1'){
+
+                //Subject Insertion
+
+                subject1.innerHTML = "# Calculus & Linear Algebra";
+                subject2.innerHTML = "# Basic Electrical and Electronics Engg."; 
+                subject3.innerHTML = "# Problem Solving and Programming Through C"; 
+                subject4.innerHTML = "# Engineering Graphics & Computer Drafting"; 
+                subject5.innerHTML = "# English-Language communication Skills Lab-I"; 
+                subject6.innerHTML = "# English-Language communication Skills Lab-I"; 
+                subject7.innerHTML = "# Problem Solving and Programming Through C Lab"; 
+                subject8.innerHTML = ""; 
+                subject9.innerHTML = ""; 
+
+
+                //Credits
+
+                subject1_credits = 4
+                subject2_credits = 4
+                subject3_credits = 4
+                subject4_credits = 2.5
+                subject5_credits = 2.5
+                subject6_credits = 1.5
+                subject7_credits = 1.5
+                subject8_credits = 0
+                subject9_credits = 0
+
+                document.getElementById("8").style.display="none";
+                document.getElementById("9").style.display="none";
+
+
+            }
+            else if(branch == 'ECE' && year == 'E1' && sem == 'Sem - 1'){
+                //Subject Insertion
+
+                subject1.innerHTML = "# Differential Equations and Multivariable calculus";
+                subject2.innerHTML = "# Engineering Physics"; 
+                subject3.innerHTML = "# Engineering Physics Lab"; 
+                subject4.innerHTML = "# Signals and Systems"; 
+                subject5.innerHTML = "# Electrical Technology"; 
+                subject6.innerHTML = "# Electrical Technology Lab"; 
+                subject7.innerHTML = "# Introduction to Latest Technical Advancements"; 
+                subject8.innerHTML = "# Programming & Data Structures"; 
+                subject9.innerHTML = "# Programming & Data Structures Lab"; 
+
+
+                //Credits
+
+                subject1_credits = 4
+                subject2_credits = 4
+                subject3_credits = 1.5
+                subject4_credits = 4
+                subject5_credits = 4
+                subject6_credits = 1.5
+                subject7_credits = 1
+                subject8_credits = 3
+                subject9_credits = 1.5
+
+            }
+            else if (branch == 'EEE' && year == 'E1' && sem == 'Sem - 1'){
+                //Subject Insertion
+
+                subject1.innerHTML = "# Differential Equations and Multivariable Calculus";
+                subject2.innerHTML = "# Engineering Physics"; 
+                subject3.innerHTML = "# Engineering Physics Lab"; 
+                subject4.innerHTML = "# Engineering Graphics & Computer Drafting"; 
+                subject5.innerHTML = "# Electrical Technology"; 
+                subject6.innerHTML = "# Electrical Technology Lab"; 
+                subject7.innerHTML = "# Introduction to Latest Technical Advancements "; 
+                subject8.innerHTML = "# Programming & Data Structures"; 
+                subject9.innerHTML = "# Programming & Data Structures Lab"; 
+
+
+                //Credits
+
+
+                subject1_credits = 4
+                subject2_credits = 4
+                subject3_credits = 1.5
+                subject4_credits = 2.5
+                subject5_credits = 4
+                subject6_credits = 1.5
+                subject7_credits = 1
+                subject8_credits = 3
+                subject9_credits = 1.5
+            }
+            else if(branch == 'CIVIL' && year == 'E1' && sem == 'Sem - 1'){
+                //Subject Insertion
+
+                subject1.innerHTML = "# Engineering Chemistry";
+                subject2.innerHTML = "# Differential Equations and Multivariable Calculus"; 
+                subject3.innerHTML = "# Programming and Data Structures"; 
+                subject4.innerHTML = "# Engineering Graphics and Computer Drafting"; 
+                subject5.innerHTML = "# Engineering Chemistry Lab"; 
+                subject6.innerHTML = "# English Language Communication Skills Lab-I"; 
+                subject7.innerHTML = "# Programming and Data Structures Lab"; 
+                subject8.innerHTML = ""; 
+                subject9.innerHTML = ""; 
+
+
+
+                document.getElementById("8").style.display="none";
+                document.getElementById("9").style.display="none";
+
+                //Credits
+
+
+                subject1_credits = 3
+                subject2_credits = 4
+                subject3_credits = 3
+                subject4_credits = 2.5
+                subject5_credits = 1.5
+                subject6_credits = 2.5
+                subject7_credits = 1.5
+                subject8_credits = 0
+                subject9_credits = 0
+
+            }
+            else if(branch == 'MECH' && year == 'E1' && sem == 'Sem - 1'){
+                //Subject Insertion
+
+                subject1.innerHTML = "# Differential Equations and Multivariable Calculus";
+                subject2.innerHTML = "# English Language Communication Skills Lab - 1 "; 
+                subject3.innerHTML = "# Engineering Physics "; 
+                subject4.innerHTML = "# Basic Electrical and Electronics Engineering"; 
+                subject5.innerHTML = "# Engineering Chemistry"; 
+                subject6.innerHTML = "# Workshop Practice"; 
+                subject7.innerHTML = "# Basic Electrical & Electronics Engineering Lab"; 
+                subject8.innerHTML = "# Engineering Physics & Chemistry Lab"; 
+                subject9.innerHTML = ""; 
+
+
+                //Credits
+
+
+                subject1_credits = 4
+                subject2_credits = 2.5
+                subject3_credits = 4
+                subject4_credits = 4
+                subject5_credits = 3
+                subject6_credits = 1.5
+                subject7_credits = 1.5
+                subject8_credits = 1.5
+                subject9_credits = 0
+
+
+                document.getElementById("9").style.display="none";
+
+            }
+            else{
+                alert("Sorry Only for E1 Sem-1")
+            }
+        }
+        else{
+            location.href="#top"
+        }
+        }
+    }
+
+
+
+    
+    function calc_gpa(){
+
+        //Obtained Grades Subject Wise
+
+        subject1_value = document.getElementById("subject1").value
+        subject2_value = document.getElementById("subject2").value
+        subject3_value = document.getElementById("subject3").value
+        subject4_value = document.getElementById("subject4").value
+        subject5_value = document.getElementById("subject5").value
+        subject6_value = document.getElementById("subject6").value
+        subject7_value = document.getElementById("subject7").value
+        subject8_value = document.getElementById("subject8").value
+        subject9_value = document.getElementById("subject9").value
+                    
+        //Obtained Credits
+        Total_Credits_Obtained = (subject1_value * subject1_credits) +
+        (subject2_value * subject2_credits) + 
+        (subject3_value * subject3_credits) + 
+        (subject4_value * subject4_credits) +
+        (subject5_value * subject5_credits) + 
+        (subject6_value * subject6_credits) + 
+        (subject7_value * subject7_credits) + 
+        (subject8_value * subject8_credits) + 
+        (subject9_value * subject9_credits)
+        //Deafault Credits
+
+        Total_credits = subject1_credits+subject2_credits+subject3_credits+subject4_credits+
+        subject5_credits+subject6_credits+subject7_credits+subject8_credits+subject9_credits;
+
+        //Gpa Calculation
+                
+                
+        Gpa = (Total_Credits_Obtained / Total_credits);
+            
+        document.getElementById("result").innerHTML= "Your Gpa : " + Gpa
+        document.getElementById("mobile-result").innerHTML= "Your Gpa is " + Gpa
+
+    }
+</script>
+</html>
