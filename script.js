@@ -78,6 +78,7 @@ function validate(){
 
 
                 //Credits
+                
 
                 subject1_credits = 4
                 subject2_credits = 4
@@ -86,8 +87,9 @@ function validate(){
                 subject5_credits = 2.5
                 subject6_credits = 1.5
                 subject7_credits = 1.5
-                subject8_credits = 0
+                subject8_credits = 0 // Indian Constitution
                 subject9_credits = 0
+                subject10_credits = 0 
 
                 document.getElementById("8").style.display="none";
                 document.getElementById("9").style.display="none";
@@ -100,7 +102,7 @@ function validate(){
                 subject1.innerHTML = "# Differential Equations and Multivariable calculus";
                 subject2.innerHTML = "# Engineering Physics"; 
                 subject3.innerHTML = "# Engineering Physics Lab"; 
-                subject4.innerHTML = "# Signals and Systems"; 
+                subject4.innerHTML = "# Engineering Graphics and Computer Drafting"; 
                 subject5.innerHTML = "# Electrical Technology"; 
                 subject6.innerHTML = "# Electrical Technology Lab"; 
                 subject7.innerHTML = "# Introduction to Latest Technical Advancements"; 
@@ -109,16 +111,18 @@ function validate(){
 
 
                 //Credits
+                
 
                 subject1_credits = 4
                 subject2_credits = 4
                 subject3_credits = 1.5
-                subject4_credits = 4
+                subject4_credits = 2.5
                 subject5_credits = 4
                 subject6_credits = 1.5
                 subject7_credits = 1
                 subject8_credits = 3
                 subject9_credits = 1.5
+                subject10_credits = 0 //Biology for beginers
 
             }
             else if (branch == 'EEE' && year == 'E1' && sem == 'Sem - 1'){
@@ -136,6 +140,7 @@ function validate(){
 
 
                 //Credits
+               
 
 
                 subject1_credits = 4
@@ -147,6 +152,7 @@ function validate(){
                 subject7_credits = 1
                 subject8_credits = 3
                 subject9_credits = 1.5
+                subject10_credits = 0 //No subject
             }
             else if(branch == 'CIVIL' && year == 'E1' && sem == 'Sem - 1'){
                 //Subject Insertion
@@ -166,7 +172,8 @@ function validate(){
                 document.getElementById("8").style.display="none";
                 document.getElementById("9").style.display="none";
 
-                //Credits
+                                //Credits
+                subject10_credits = 0
 
 
                 subject1_credits = 3
@@ -194,7 +201,8 @@ function validate(){
                 subject9.innerHTML = ""; 
 
 
-                //Credits
+                                //Credits
+                subject10_credits = 0
 
 
                 subject1_credits = 4
@@ -231,7 +239,8 @@ function validate(){
                 subject9.innerHTML = ""; 
 
 
-                //Credits
+                                //Credits
+                subject10_credits = 0
 
                 subject1_credits = 4
                 subject2_credits = 4
@@ -261,7 +270,8 @@ function validate(){
                 subject9.innerHTML = "# Engineering Graphics and Design"; 
 
 
-                //Credits
+                                //Credits
+                subject10_credits = 0
 
                 subject1_credits = 4
                 subject2_credits = 2
@@ -288,7 +298,8 @@ function validate(){
                 subject9.innerHTML = "# Introduction to AI"; 
 
 
-                //Credits
+                                //Credits
+                subject10_credits = 0
 
 
                 subject1_credits = 4
@@ -318,7 +329,8 @@ function validate(){
 
                 document.getElementById("9").style.display="none";
 
-                //Credits
+                                //Credits
+                subject10_credits = 0
 
 
                 subject1_credits = 3
@@ -346,7 +358,8 @@ function validate(){
                 subject9.innerHTML = ""; 
 
 
-                //Credits
+                                //Credits
+                subject10_credits = 0
 
 
                 subject1_credits = 4
@@ -391,7 +404,8 @@ function validate(){
                 subject9.innerHTML = ""; 
 
 
-                //Credits
+                                //Credits
+                subject10_credits = 0
 
                 subject1_credits = 4
                 subject2_credits = 3
@@ -421,7 +435,8 @@ function validate(){
                 subject9.innerHTML = "# Control Systems"; 
 
 
-                //Credits
+                                //Credits
+                subject10_credits = 0
 
                 subject1_credits = 3
                 subject2_credits = 1.5
@@ -448,7 +463,8 @@ function validate(){
                 subject9.innerHTML = "# Electrical Machines Lab"; 
 
 
-                //Credits
+                                //Credits
+                subject10_credits = 0
 
                 subject1_credits = 3
                 subject2_credits = 1
@@ -477,7 +493,8 @@ function validate(){
 
                 document.getElementById("9").style.display="none";
 
-                //Credits
+                                //Credits
+                subject10_credits = 0
 
 
                 subject1_credits = 3
@@ -505,7 +522,8 @@ function validate(){
                 subject9.innerHTML = ""; 
 
 
-                //Credits
+                                //Credits
+                subject10_credits = 0
 
 
                 subject1_credits = 4
@@ -543,7 +561,8 @@ function validate(){
                 subject9.innerHTML = ""; 
 
 
-                //Credits
+                                //Credits
+                subject10_credits = 0
 
                 subject1_credits = 3
                 subject2_credits = 3
@@ -573,7 +592,8 @@ function validate(){
                 subject9.innerHTML = ""; 
 
 
-                //Credits
+                                //Credits
+                subject10_credits = 0
 
                 subject1_credits = 2.5
                 subject2_credits = 4
@@ -602,7 +622,8 @@ function validate(){
                 subject9.innerHTML = "# Power Electronics Lab"; 
 
 
-                //Credits
+                                //Credits
+                subject10_credits = 0
 
 
                 subject1_credits = 1
@@ -632,7 +653,8 @@ function validate(){
 
                 document.getElementById("9").style.display="none";
 
-                //Credits
+                                //Credits
+                subject10_credits = 0
 
 
                 subject1_credits = 3
@@ -660,7 +682,8 @@ function validate(){
                 subject9.innerHTML = ""; 
 
 
-                //Credits
+                                //Credits
+                subject10_credits = 0
 
 
                 subject1_credits = 4
@@ -704,7 +727,8 @@ function validate(){
                 subject9.innerHTML = "# English-Language communication Skills Lab- II"; 
 
 
-                //Credits
+                                //Credits
+                subject10_credits = 0
 
                 subject1_credits = 3
                 subject2_credits = 3
@@ -733,7 +757,8 @@ function validate(){
 
 
 
-                //Credits
+                                //Credits
+                subject10_credits = 0
 
                 subject1_credits = 3
                 subject2_credits = 4
@@ -796,7 +821,9 @@ function validate(){
 
                 document.getElementById("9").style.display="none";
 
-                //Credits
+                                //Credits
+                subject10_credits = 0
+
 
 
                 subject1_credits = 4
@@ -824,7 +851,8 @@ function validate(){
                 subject9.innerHTML = ""; 
 
 
-                //Credits
+                                //Credits
+                subject10_credits = 0
 
 
                 subject1_credits = 4
@@ -861,7 +889,8 @@ function validate(){
                 subject9.innerHTML = "# Summer Internship"; 
 
 
-                //Credits
+                                //Credits
+                subject10_credits = 0
 
                 subject1_credits = 4
                 subject2_credits = 4
@@ -891,7 +920,8 @@ function validate(){
                 subject9.innerHTML = ""; 
 
 
-                //Credits
+                                //Credits
+                subject10_credits = 0
 
                 subject1_credits = 1.5
                 subject2_credits = 1
@@ -922,7 +952,8 @@ function validate(){
                 subject9.innerHTML = ""; 
 
 
-                //Credits
+                                //Credits
+                subject10_credits = 0
 
                 subject1_credits = 1.5
                 subject2_credits = 3
@@ -955,7 +986,8 @@ function validate(){
 
                 document.getElementById("9").style.display="none";
 
-                //Credits
+                                //Credits
+                subject10_credits = 0
 
 
                 subject1_credits = 2.5
@@ -983,7 +1015,8 @@ function validate(){
                 subject9.innerHTML = ""; 
 
 
-                //Credits
+                                //Credits
+                subject10_credits = 0
 
 
                 subject1_credits = 4
@@ -1027,7 +1060,8 @@ function validate(){
                 subject9.innerHTML = ""; 
 
 
-                //Credits
+                                //Credits
+                subject10_credits = 0
 
                 subject1_credits = 3
                 subject2_credits = 3
@@ -1061,7 +1095,8 @@ function validate(){
                 subject9.innerHTML = ""; 
 
 
-                //Credits
+                                //Credits
+                subject10_credits = 0
 
                 subject1_credits = 3
                 subject2_credits = 3
@@ -1096,7 +1131,8 @@ function validate(){
                 subject9.innerHTML = ""; 
 
 
-                //Credits
+                                //Credits
+                subject10_credits = 0
 
 
                 subject1_credits = 3
@@ -1134,7 +1170,8 @@ function validate(){
                 document.getElementById("8").style.display="none";
                 document.getElementById("9").style.display="none";
 
-                //Credits
+                                //Credits
+                subject10_credits = 0
 
 
                 subject1_credits = 3
@@ -1162,7 +1199,8 @@ function validate(){
                 subject9.innerHTML = ""; 
 
 
-                //Credits
+                                //Credits
+                subject10_credits = 0
 
 
                 subject1_credits = 3
@@ -1203,7 +1241,8 @@ function validate(){
                 subject9.innerHTML = ""; 
 
 
-                //Credits
+                                //Credits
+                subject10_credits = 0
 
                 subject1_credits = 4
                 subject2_credits = 4
@@ -1236,7 +1275,8 @@ function validate(){
                 subject9.innerHTML = ""; 
 
 
-                //Credits
+                                //Credits
+                subject10_credits = 0
 
                 subject1_credits = 2
                 subject2_credits = 3
@@ -1269,7 +1309,8 @@ function validate(){
                 subject9.innerHTML = ""; 
 
 
-                //Credits
+                                //Credits
+                subject10_credits = 0
 
 
                 subject1_credits = 2
@@ -1307,7 +1348,8 @@ function validate(){
                 document.getElementById("8").style.display="none";
                 document.getElementById("9").style.display="none";
 
-                //Credits
+                                //Credits
+                subject10_credits = 0
 
 
                 subject1_credits = 3
@@ -1335,7 +1377,8 @@ function validate(){
                 subject9.innerHTML = ""; 
 
 
-                //Credits
+                                //Credits
+                subject10_credits = 0
 
 
                 subject1_credits = 3
@@ -1385,6 +1428,7 @@ function validate(){
         subject7_value = document.getElementById("subject7").value
         subject8_value = document.getElementById("subject8").value
         subject9_value = document.getElementById("subject9").value
+        subject10_value = document.getElementById("subject10").value
                     
         //Obtained Credits
         Total_Credits_Obtained = (subject1_value * subject1_credits) +
@@ -1395,15 +1439,16 @@ function validate(){
         (subject6_value * subject6_credits) + 
         (subject7_value * subject7_credits) + 
         (subject8_value * subject8_credits) + 
-        (subject9_value * subject9_credits)
+        (subject9_value * subject9_credits) + 
+        (subject10_value * subject10_credits)
         //Deafault Credits
 
         Total_credits = subject1_credits+subject2_credits+subject3_credits+subject4_credits+
-        subject5_credits+subject6_credits+subject7_credits+subject8_credits+subject9_credits;
+        subject5_credits+subject6_credits+subject7_credits+subject8_credits+subject9_credits+subject10_credits;
 
         //Gpa Calculation
                 
-                
+
         Gpa = (Total_Credits_Obtained / Total_credits);
             
         document.getElementById("result").innerHTML= "Your Gpa : " + Gpa
