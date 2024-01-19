@@ -37,7 +37,7 @@ function validate(){
         document.getElementById("subjects").style.transition="0.4s ease-in-out";
         document.getElementById("h2").style.transition="0.4s ease-in-out";
 
-            window.scrollTo(100,950);
+            
 
 
             branch = document.getElementById("branch").value;
@@ -159,12 +159,12 @@ function validate(){
 
                 subject1.innerHTML = "# Engineering Chemistry";
                 subject2.innerHTML = "# Differential Equations and Multivariable Calculus"; 
-                subject3.innerHTML = "# Programming and Data Structures"; 
+                subject3.innerHTML = "# Basic Programming Language"; 
                 subject4.innerHTML = "# Engineering Graphics and Computer Drafting"; 
-                subject5.innerHTML = "# Engineering Chemistry Lab"; 
+                subject5.innerHTML = "# Computer Aided Drafting (CAD) Lab"; 
                 subject6.innerHTML = "# English Language Communication Skills Lab-I"; 
-                subject7.innerHTML = "# Programming and Data Structures Lab"; 
-                subject8.innerHTML = ""; 
+                subject7.innerHTML = "# C Programming Lab"; 
+                subject8.innerHTML = ""; //Human Values
                 subject9.innerHTML = ""; 
 
 
@@ -172,20 +172,19 @@ function validate(){
                 document.getElementById("8").style.display="none";
                 document.getElementById("9").style.display="none";
 
-                                //Credits
-                subject10_credits = 0
-
+                //Credits
 
                 subject1_credits = 3
                 subject2_credits = 4
-                subject3_credits = 3
+                subject3_credits = 4
                 subject4_credits = 2.5
                 subject5_credits = 1.5
                 subject6_credits = 2.5
                 subject7_credits = 1.5
-                subject8_credits = 0
+                subject8_credits = 0   //Human Values
                 subject9_credits = 0
-
+                subject10_credits = 0
+            
             }
             else if(branch == 'MECH' && year == 'E1' && sem == 'Sem - 1'){
                 //Subject Insertion

@@ -246,6 +246,32 @@
             font-size:100px;
         }
         
+        .social-icon {
+            font-size: 2rem;
+            margin: 0 10px;
+            color:white;
+            text-decoration:none;
+            transition: color 0.3s ease;
+          }
+      
+          .social-icon:hover {
+              color:white;
+              text-decoration:none;
+          }
+  
+          footer{
+            position:relative;
+            bottom:0px;
+            letter-spacing:2px;
+          }
+  
+          .child{
+              display:flex;
+              flex-direction:row;
+              align-items:center;
+              justify-content:space-between;
+          }
+
         @media (max-width:900px){
         
             /* Google Fonts */
@@ -514,5 +540,36 @@
             letter-spacing:2px;
         }
         
+
+        .social-icon {
+            font-size: 2rem;
+            margin: 0 10px;
+            color:white;
+            text-decoration:none;
+            transition: color 0.3s ease;
+
+          }
+
+        .social-icon i{
+            width:12px;
+            height:12px;
+        }
+      
+          .social-icon:hover {
+              color:white;
+              text-decoration:none;
+          }
+  
+          footer{
+            letter-spacing:2px;
+            position:relative;
+          }
+  
+          .child{
+              display:flex;
+              flex-direction:column;
+              align-items:center;
+              justify-content:space-between;
+          }
         
         }
