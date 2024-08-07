@@ -5,56 +5,32 @@ location.href="#GradeLite"
 //     alert("Don't try to Inspect")
 // });
 
-function startConfetti() {
-    const confettiContainer = document.getElementById('confetti-container');
+function generateEffect(){
+    var duration = 3 * 1000;
+    var end = Date.now() + duration;
 
-    // Function to create confetti pieces
-    function createConfettiPiece(container) {
-        const confetti = document.createElement('div');
-        confetti.className = 'confetti';
+    (function frame() {
+      // launch a few confetti from the left edge
+      confetti({
+        particleCount: 10,
+        angle: 60,
+        spread: 100,
+        origin: { x: 0}
+      });
+      // and launch a few from the right edge
+      confetti({
+        particleCount: 10,
+        angle: 120,
+        spread: 100,
+        origin: { x: 1}
+      });
 
-        // Assign random sizes
-        const width = Math.random() * 10 + 5; // Width between 5px and 15px
-        const height = Math.random() * 15 + 10; // Height between 10px and 25px
-        confetti.style.width = `${width}px`;
-        confetti.style.height = `${height}px`;
-
-        confetti.style.left = `${Math.random() * 100}%`;
-        confetti.style.top = `-${Math.random() * 20 + 10}px`; // Start slightly above the viewport
-        confetti.style.animationDelay = `${Math.random()}s`; // Random start delay up to 5 seconds
-        confetti.style.backgroundColor = getRandomColor();
-        confetti.style.transform = `rotate(${Math.random() * 360}deg)`;
-        container.appendChild(confetti);
-
-        setTimeout(() => {
-            confetti.remove();
-        }, 10000); // Match the animation duration
+      // keep going until we are out of time
+      if (Date.now() < end) {
+        requestAnimationFrame(frame);
+      }
+    }());
     }
-
-    // Function to get random color
-    function getRandomColor() {
-        const colors = ['#FF3E4D', '#FFD700', '#32CD32', '#87CEEB', '#FF1493', '#9B30FF', '#FFA500', '#40E0D0'];
-        return colors[Math.floor(Math.random() * colors.length)];
-    }
-
-    // Initial confetti pieces
-    for (let i = 0; i < 500; i++) {
-        createConfettiPiece(confettiContainer);
-    }
-
-    // Interval to continuously add new confetti pieces
-    const confettiInterval = setInterval(() => {
-        for (let i = 0; i < 50; i++) { // Continuously add new confetti pieces
-            createConfettiPiece(confettiContainer);
-        }
-    }, 500); // Add new confetti every 0.5 seconds
-
-    // Stop adding new confetti pieces after 5 seconds
-    setTimeout(() => {
-        clearInterval(confettiInterval);
-    }, 5000);
-}
-
 
 
 
@@ -1501,7 +1477,7 @@ function validate(){
 
         Gpa = (Total_Credits_Obtained / Total_credits);
         if(Gpa>9){
-            startConfetti();
+            generateEffect();
         }
         document.getElementById("result").innerHTML= "Your Gpa : " + Gpa
         document.getElementById("mobile-result").innerHTML= "Your Gpa is " + Gpa
