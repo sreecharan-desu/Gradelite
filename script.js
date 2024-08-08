@@ -1476,7 +1476,7 @@ function validate(){
                 
 
         Gpa = (Total_Credits_Obtained / Total_credits);
-        if(Gpa>9){
+        if(Gpa>=9){
             generateEffect();
         }
         document.getElementById("result").innerHTML= "Your Gpa : " + Gpa
