@@ -1,5 +1,4 @@
 window.scrollTo(0,0);
-location.href="#GradeLite";
 
 function generateEffect(){
     var duration = 3 * 1000, end = Date.now() + duration;
