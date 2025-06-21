@@ -2,16 +2,50 @@
 <html lang="en">
 <head>
 <style>
-  html.redirecting body {
-    display: none !important;
+  /* Style for redirect screen */
+  html.redirecting, html.redirecting body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    background: #000;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    font-family: sans-serif;
+  }
+
+  .spinner {
+    border: 6px solid #444;
+    border-top: 6px solid #09f;
+    border-radius: 50%;
+    width: 48px;
+    height: 48px;
+    animation: spin 1s linear infinite;
+    margin-bottom: 16px;
+  }
+
+  @keyframes spin {
+    to { transform: rotate(360deg); }
   }
 </style>
+
 <script>
   if (window.location.hostname === "sreecharan-desu.github.io") {
     document.documentElement.classList.add("redirecting");
-    window.location.replace("https://gradelite.sreecharandesu.in");
+    document.addEventListener("DOMContentLoaded", () => {
+      document.body.innerHTML = `
+        <div class="spinner"></div>
+        <div>Redirecting to gradelite.sreecharandesu.in...</div>
+      `;
+      setTimeout(() => {
+        window.location.replace("https://gradelite.sreecharandesu.in");
+      }, 500); // Optional delay (0.5s) to let spinner render
+    });
   }
 </script>
+
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
