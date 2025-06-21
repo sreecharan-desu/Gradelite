@@ -1,6 +1,6 @@
-if(window.location.href != "https://gradelite.sreecharandesu.in/") {
-    window.location.replace("https://gradelite.sreecharandesu.in");
-}
+// if(window.location.href != "https://gradelite.sreecharandesu.in/") {
+//     window.location.replace("https://gradelite.sreecharandesu.in");
+// }
 window.scrollTo(0,0);
 
 function generateEffect(){
