@@ -1,11 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <script>
-        if(window.location.href != "https://gradelite.sreecharandesu.in/") {
-            window.location.replace("https://gradelite.sreecharandesu.in");
-        }
-    </script>
+<style>
+  html.redirecting body {
+    display: none !important;
+  }
+</style>
+<script>
+  if (window.location.hostname === "sreecharan-desu.github.io") {
+    document.documentElement.classList.add("redirecting");
+    window.location.replace("https://gradelite.sreecharandesu.in");
+  }
+</script>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GradeLite</title>
