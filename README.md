@@ -1,123 +1,262 @@
-# Gradelite Documentation
+## GradeLite GPA Calculator: Technical Documentation
 
-Generated on: 2025-04-02 16:51:54
+This document provides a comprehensive overview of the GradeLite GPA calculator, its architecture, workflows, and usage. It aims to equip developers with the necessary knowledge to understand, maintain, and extend the system.
 
-## Overview
+### Overview
 
-This documentation covers 3 files from the Gradelite codebase.
+The GradeLite GPA calculator is a client-side application designed to calculate a student's GPA based on subject grades and credits. It dynamically updates the subject list based on user-selected branch, year, and semester. The application also includes a celebratory confetti effect when a GPA of 9 or higher is achieved.
 
-## Table of Contents
+### Architecture
 
-### Root
+The application's core logic resides within the `script.js` file. It interacts with HTML elements to gather user input, display subject names, and present the calculated GPA. The application utilizes JavaScript's DOM manipulation capabilities to dynamically update the user interface.
 
-- [index.html](#index-html)
-- [script.js](#script-js)
-- [style.css](#style-css)
+### Data Flow and Workflows
 
-## File Documentation
+#### 1. Initialization
 
-### Root
+-   The application redirects to the `#GradeLite` anchor upon loading.
+-   An array `subjects` is initialized, containing references to the HTML elements that will display subject names.
+-   The HTML element with ID "10" is hidden.
 
-<a id='index-html'></a>
+#### 2. Validation Workflow
 
-#### index.html
+This workflow is triggered when the user submits the form with branch, year, and semester information.
 
-*Path: index.html*
+```mermaid
+sequenceDiagram
+    participant User
+    participant HTML Form
+    participant script.js:validate()
+    participant subjectsData
+    participant HTML Elements
 
-1. **Purpose:** This HTML file defines the structure and content of the GradeLite web page, providing a user interface for GPA calculation based on selected criteria. It serves as the entry point for the application.
+    User->>HTML Form: Enters Branch, Year, Semester
+    User->>HTML Form: Submits Form
+    HTML Form->>script.js:validate(): Calls validate() function
+    script.js->>HTML Elements: Displays h2 and subjects elements
+    script.js->>HTML Elements: Sets opacity and transition for h2 and subjects
+    script.js->>HTML Elements: Makes elements with IDs 5-9 visible
+    script.js->>HTML Elements: Updates h2 with branch, year, and semester
+    script.js->>subjectsData: Accesses subjectsData based on branch, year, and semester
+    alt Valid Input
+        subjectsData->>script.js: Returns subject data
+        loop For Each Subject
+            script.js->>HTML Elements: Updates subject name
+        end
+        loop For Each Credit
+            script.js->>script.js: Sets window[`subject${i+1}_credits`]
+        end
+        alt Hide Elements
+            script.js->>HTML Elements: Hides specified elements
+        end
+        alt Show Elements
+            script.js->>HTML Elements: Shows specified elements
+        end
+    else Invalid Input
+        subjectsData-->>script.js: Returns undefined
+        script.js->>User: Alerts "Please Enter a Valid Input"
+        script.js->>HTML Elements: Hides h2 and subjects
+        script.js->>HTML Elements: Sets opacity to 0
+        script.js->>HTML Form: Redirects to index.html
+    end
+```
 
-2. **Key Functionality:**
+**Explanation:**
 
-- **Structure:** Uses standard HTML elements (`<table>`, `<form>`, `<select>`, `<input>`, etc.) to create the page layout, including a navigation bar, criteria selection form, subject grade input table, and a footer.
-- **Form Handling:** The `<form>` element collects user input (branch, year, semester) via `<select>` dropdowns.  The `onclick="validate()"` event on the submit button triggers the `validate()` function in `script.js`.
-- **Dynamic Content:**  Placeholders like `<p id="Subject1"></p>` and dynamically generated table rows are used to display subject names based on user selections. The `id` attributes are used by `script.js` to populate these elements.
-- **GPA Calculation Trigger:** The "Calculate" button with `onclick="calc_gpa()"` triggers the GPA calculation function in `script.js`.
-- **Result Display:** The `<p id="result"></p>` and `<p id="mobile-result"></p>` elements are used to display the calculated GPA, targeting different screen sizes.
-- **External Resources:** Links to external CSS (Bootstrap, Font Awesome) and JavaScript (Bootstrap, Confetti library) are included for styling and dynamic effects.
+1.  The user interacts with the HTML form, entering their branch, year, and semester.
+2.  Upon submission, the `validate()` function in `script.js` is called.
+3.  The `validate()` function first displays the `h2` and `subjects` elements, setting their opacity and transition properties for a smooth visual effect. It also makes elements with IDs 5 through 9 visible.
+4.  It then constructs a header string with the provided branch, year, and semester information and updates the `h2` element's content.
+5.  The function accesses the `subjectsData` object, attempting to retrieve subject information based on the user's input.
+6.  If valid data is found:
+    *   It iterates through the `subjects` array, updating the inner HTML of each subject element with the corresponding name from the `subjectsData`.
+    *   It iterates through the `credits` array, assigning each credit value to a global variable named `subject{i+1}_credits`.
+    *   It hides and shows elements based on the `hide` and `show` arrays within the data.
+7.  If the input is invalid:
+    *   An alert message is displayed to the user.
+    *   The `h2` and `subjects` elements are hidden, and their opacity is set to 0.
+    *   The application redirects to `index.html`.
 
-3. **Dependencies and Relationships:**
+#### 3. GPA Calculation Workflow
 
-- **Imports & Usage:** Depends on `bootstrap.css`, `style.css`, `script.js`, `wish.js`, Bootstrap (JS and CSS), Font Awesome, and a confetti library.
-- **Code Relationships:** This file is the main HTML file and is rendered by the browser.  It interacts directly with `script.js` for dynamic content updates and GPA calculation.  `style.css` provides the styling, and `wish.js` likely adds birthday-related functionality (not included in the provided code).
+This workflow is triggered when the user clicks the "Calculate GPA" button.
 
-4. **Usage Example:** The user interacts with the form elements, selects their branch, year, and semester, and then clicks "Submit."  `script.js` then populates the subject table. The user enters their grades, clicks "Calculate," and the GPA is displayed in the designated area.
+```mermaid
+sequenceDiagram
+    participant User
+    participant HTML Form
+    participant script.js:calc_gpa()
+    participant HTML Elements
+    participant script.js:generateEffect()
 
-5. **Technical Notes:**
+    User->>HTML Form: Enters Grades
+    User->>HTML Form: Clicks "Calculate GPA"
+    HTML Form->>script.js:calc_gpa(): Calls calc_gpa() function
+    script.js->>HTML Elements: Retrieves grades and credits
+    loop For Each Subject
+        script.js->>script.js: Calculates Total_Credits_Obtained and Total_credits
+    end
+    script.js->>script.js: Calculates Gpa
+    alt Gpa >= 9
+        script.js->>script.js: Calls generateEffect()
+        script.js->>HTML Elements: Triggers confetti effect
+    end
+    script.js->>HTML Elements: Updates result and mobile-result elements with GPA
+```
 
-- The use of external libraries (Bootstrap, Font Awesome) simplifies styling and adds responsiveness.
-- The structure is relatively simple but could benefit from more semantic HTML5 elements (e.g., `<nav>`, `<main>`, `<aside>`) for improved accessibility and maintainability.
-- Inline event handlers (`onclick`) are used, which can be less maintainable than event listeners in JavaScript.
+**Explanation:**
 
----
+1.  The user enters grades for each subject in the HTML form.
+2.  Upon clicking the "Calculate GPA" button, the `calc_gpa()` function in `script.js` is called.
+3.  The function initializes `Total_Credits_Obtained` and `Total_credits` to 0.
+4.  It iterates through each subject (1 to 10):
+    *   Retrieves the grade entered by the user for the current subject. If no grade is entered, it defaults to 0.
+    *   Retrieves the credit value for the current subject from the global variable `window[`subject${i+1}\_credits`]`. If the variable is not defined, it defaults to 0.
+    *   Updates `Total_Credits_Obtained` by adding the product of the grade and credit.
+    *   Updates `Total_credits` by adding the credit value.
+5.  The GPA is calculated by dividing `Total_Credits_Obtained` by `Total_credits`.
+6.  If the calculated GPA is greater than or equal to 9:
+    *   The `generateEffect()` function is called to trigger the confetti effect.
+7.  The `result` and `mobile-result` HTML elements are updated with the calculated GPA.
 
-<a id='script-js'></a>
+#### 4. Confetti Effect Workflow
 
-#### script.js
+This workflow is triggered when the calculated GPA is greater than or equal to 9.
 
-*Path: script.js*
+```mermaid
+sequenceDiagram
+    participant script.js:generateEffect()
+    participant confetti
+    participant requestAnimationFrame
 
-1. **Purpose:** This JavaScript file provides the dynamic functionality for the GradeLite web page. It handles user input validation, dynamically updates the subject list based on selected criteria, calculates the GPA, and triggers confetti effects.
+    script.js->>script.js: Sets duration and end time
+    loop Until Date.now() >= end
+        script.js->>confetti: Calls confetti() with angle 60 and origin x=0
+        script.js->>confetti: Calls confetti() with angle 120 and origin x=1
+        script.js->>requestAnimationFrame: Calls frame()
+    end
+```
 
-2. **Key Functionality:**
+**Explanation:**
 
-- **`validate()`:**
-    - Parameters: None
-    - Return Type: None
-    - Implementation:  Reads values from the branch, year, and semester selection dropdowns.  Updates the `<h2>` element with the selected criteria and displays the subject table.  Hides specific table rows based on the chosen branch, year, and semester. Sets subject names and associated credit values.
-- **`calc_gpa()`:**
-    - Parameters: None
-    - Return Type: None
-    - Implementation: Reads grade values from subject dropdowns. Calculates the GPA based on selected grades and predefined credit values. Displays the calculated GPA in the "result" and "mobile-result" elements. Calls `generateEffect()` if the GPA is 9 or higher.
-- **`generateEffect()`:**
-    - Parameters: None
-    - Return Type: None
-    - Implementation: Uses the `canvas-confetti` library to create a confetti effect.  Uses `requestAnimationFrame` for smooth animation.
+1.  The `generateEffect()` function is called.
+2.  It sets the `duration` of the effect to 3 seconds and calculates the `end` time.
+3.  An immediately invoked function expression (IIFE) named `frame` is defined and executed.
+4.  Inside the `frame` function:
+    *   The `confetti()` function is called twice with different configurations to create a confetti effect from the left and right sides of the screen.
+    *   `requestAnimationFrame(frame)` is called to schedule the `frame` function to be executed again on the next browser repaint, creating an animation loop.
+5.  The loop continues until the current time (`Date.now()`) is greater than or equal to the `end` time.
 
-3. **Dependencies and Relationships:**
+### Code Examples
 
-- **Imports & Usage:** Depends on `index.html` and the `canvas-confetti` library.
-- **Code Relationships:** Directly manipulates elements within `index.html` to update content and display results.  Responds to user interactions defined in `index.html` (e.g., `onclick` events).
+#### 1. `validate()` function:
 
-4. **Usage Example:** Called when the user clicks "Submit" (calls `validate()`) and "Calculate" (calls `calc_gpa()`).
+```javascript
+function validate(){
+    document.getElementById("h2").style.display=document.getElementById("subjects").style.display="block";
+    document.getElementById("h2").style.opacity=document.getElementById("subjects").style.opacity=1;
+    document.getElementById("h2").style.transition=document.getElementById("subjects").style.transition="0.4s ease-in-out";
+    
+    for(let i=5;i<=9;i++) document.getElementById(i).style.display="";
+    
+    const branch=document.getElementById("branch").value,year=document.getElementById("year").value,sem=document.getElementById("sem").value;
+    document.getElementById("h2").innerHTML=` #${branch} / ${year} / ${sem}`;
+    
+    const subjectsData = {
+        'E1': {
+            'Sem - 1': {
+                // Subject data
+            }
+        }
+    };
 
-5. **Technical Notes:**
+    if(subjectsData[year] && subjectsData[year][sem] && subjectsData[year][sem][branch]) {
+        const data = subjectsData[year][sem][branch];
+        subjects.forEach((sub,i) => sub.innerHTML = data.names[i] ? `# ${data.names[i]}` : "");
+        data.credits.forEach((cred,i) => window[`subject${i+1}_credits`] = cred);
+        if(data.hide) data.hide.forEach(i => document.getElementById(i).style.display="none");
+        if(data.show) data.show.forEach(i => document.getElementById(i).style.display="");
+    } else {
+        alert("Please Enter a Valid Input");
+        document.getElementById("h2").style.display=document.getElementById("subjects").style.display="none";
+        document.getElementById("h2").style.opacity=document.getElementById("subjects").style.opacity=0;
+        location.href="index.html";
+    }
+}
+```
 
-- The code uses global variables extensively, which can lead to maintainability issues. Encapsulating logic within objects or modules would improve code organization.
-- The subject and credit information is hardcoded within the `validate()` function, making it difficult to update or extend.  A more data-driven approach (e.g., using JSON or an external data source) would be more flexible.
-- Error handling is minimal.  The code assumes valid input and doesn't handle potential errors (e.g., non-numeric input in grade selections).
+This function retrieves user input (branch, year, semester), updates the UI, and populates subject names based on the `subjectsData` object. It also handles invalid input by displaying an alert and redirecting to the index page.
 
----
+#### 2. `calc_gpa()` function:
 
-<a id='style-css'></a>
+```javascript
+function calc_gpa(){
+    let Total_Credits_Obtained = 0, Total_credits = 0;
+    for(let i=1;i<=10;i++){
+        const grade = parseFloat(document.getElementById(`subject${i}`).value) || 0;
+        const credit = window[`subject${i}_credits`] || 0;
+        Total_Credits_Obtained += grade * credit;
+        Total_credits += credit;
+    }
+    const Gpa = Total_Credits_Obtained / Total_credits;
+    if(Gpa>=9) generateEffect();
+    document.getElementById("result").innerHTML = document.getElementById("mobile-result").innerHTML = `Your Gpa : ${Gpa}`;
+}
+```
 
-#### style.css
+This function calculates the GPA by iterating through the subject grades and credits, summing the total credits obtained and total credits, and then dividing the former by the latter. It also triggers the confetti effect if the GPA is 9 or higher and updates the UI with the calculated GPA.
 
-*Path: style.css*
+#### 3. `generateEffect()` function:
 
-1. **Purpose:** This CSS file provides the styling for the GradeLite web page. It defines the visual appearance of elements, including layout, colors, fonts, and responsiveness.
+```javascript
+function generateEffect(){
+    var duration = 3 * 1000, end = Date.now() + duration;
+    (function frame(){
+        confetti({particleCount:10,angle:60,spread:100,origin:{x:0}});
+        confetti({particleCount:10,angle:120,spread:100,origin:{x:1}});
+        if(Date.now()<end) requestAnimationFrame(frame);
+    }());
+}
+```
 
-2. **Key Functionality:**
+This function generates a confetti effect using the `confetti` library. It sets a duration for the effect and uses `requestAnimationFrame` to create a smooth animation loop.
 
-- **Styling:** Uses CSS selectors to style various elements (body, navbar, form elements, tables, result display, footer).
-- **Layout:**  Uses basic layout techniques (margins, padding, display properties) to arrange elements on the page.
-- **Responsiveness:** Includes a media query for `max-width: 900px` to adapt the layout and styling for smaller screens.
-- **External Fonts:** Imports the 'Cabin Condensed' font from Google Fonts.
+### Usage Guide
 
-3. **Dependencies and Relationships:**
+1.  **Include `script.js` in your HTML file.**
+2.  **Define HTML elements for user input (branch, year, semester) and subject grades.**
+3.  **Create HTML elements with IDs `Subject1` to `Subject10` to display subject names.**
+4.  **Create HTML elements with IDs `result` and `mobile-result` to display the calculated GPA.**
+5.  **Ensure the `confetti` library is included for the confetti effect.**
 
-- **Imports & Usage:** Imported by `index.html`.
-- **Code Relationships:**  Provides the visual styles for the HTML structure defined in `index.html`.
+### Implementation Details and Gotchas
 
-4. **Usage Example:**  Styles all elements within `index.html` according to the defined rules.
+-   **Global Variables:** The `calc_gpa()` function relies on global variables (`window[`subject${i+1}_credits`]`) to store subject credits. This can lead to potential naming conflicts and makes the code harder to maintain. Consider using a more structured approach, such as storing the credits in a local variable or using a data structure.
+-   **Hardcoded Subject Count:** The code assumes a fixed number of 10 subjects. This should be made configurable to support different academic programs with varying subject counts.
+-   **Data Validation:** The `validate()` function performs basic data validation but could be improved to handle more edge cases and provide more informative error messages.
+-   **`subjectsData` Structure:** The `subjectsData` object is hardcoded within the `validate()` function. For larger applications, consider fetching this data from an external source (e.g., a JSON file or an API) to improve maintainability and scalability.
 
-5. **Technical Notes:**
+### Common Issues and Troubleshooting
 
-- The CSS is generally well-organized but could benefit from a more structured approach (e.g., using a CSS preprocessor or methodology like BEM) for larger projects.
-- The media query handles basic responsiveness, but more breakpoints might be needed for a truly responsive design across various devices.
-- Some styles are repeated within the media query, which could be optimized.
+-   **Subject names not updating:** Ensure that the HTML elements with IDs `Subject1` to `Subject10` exist and are correctly referenced in the `script.js` file. Also, verify that the `subjectsData` object contains the correct subject names for the selected branch, year, and semester.
+-   **GPA not calculating correctly:** Double-check that the grade input fields have the correct IDs (`subject1` to `subject10`) and that the `calc_gpa()` function is correctly parsing the input values. Also, ensure that the `subject{i+1}_credits` variables are being set correctly in the `validate()` function.
+-   **Confetti effect not working:** Verify that the `confetti` library is included in the HTML file and that the `generateEffect()` function is being called when the GPA is 9 or higher.
 
+### Advanced Configuration and Customization Options
 
-The files work together to create a functional web page: `index.html` provides the structure, `script.js` adds dynamic behavior, and `style.css` handles the visual presentation.  The key interaction points are the `onclick` events in `index.html` that trigger functions in `script.js`.  The JavaScript code then manipulates the DOM of `index.html` to update content and display results, all while being styled by `style.css`.  The dependencies are clearly defined through the `<link>` and `<script>` tags in `index.html`.
+-   **Customizing the Confetti Effect:** The `confetti()` function accepts various options to customize the confetti effect, such as particle count, angle, spread, and colors. Refer to the `confetti` library documentation for more details.
+-   **Adding More Subject Data:** Extend the `subjectsData` object to include data for additional branches, years, and semesters. Consider storing this data in an external file or database for easier management.
+-   **Implementing a Different Grading System:** Modify the `calc_gpa()` function to support different grading systems (e.g., letter grades) by mapping the grades to numerical values.
 
----
+### Performance Considerations and Optimization Strategies
 
+-   **Minimize DOM Manipulation:** Excessive DOM manipulation can impact performance. Consider using techniques such as batch updates and virtual DOM to reduce the number of DOM operations.
+-   **Optimize Data Structures:** Choose appropriate data structures for storing and accessing subject data to improve performance.
+-   **Lazy Loading:** Implement lazy loading for non-critical resources (e.g., images) to improve initial page load time.
+
+### Security Implications and Best Practices
+
+-   **Input Validation:** Always validate user input to prevent cross-site scripting (XSS) attacks.
+-   **Data Sanitization:** Sanitize user input before displaying it on the page to prevent XSS attacks.
+-   **Secure Data Storage:** If storing sensitive data (e.g., student grades) on the client-side, use appropriate encryption techniques to protect the data. However, storing sensitive data client-side is generally discouraged.
+-   **HTTPS:** Ensure that the application is served over HTTPS to protect data in transit.
