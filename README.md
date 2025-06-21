@@ -22,44 +22,6 @@ The application's core logic resides within the `script.js` file. It interacts w
 
 This workflow is triggered when the user submits the form with branch, year, and semester information.
 
-```mermaid
-sequenceDiagram
-    participant User
-    participant HTML Form
-    participant script.js:validate()
-    participant subjectsData
-    participant HTML Elements
-
-    User->>HTML Form: Enters Branch, Year, Semester
-    User->>HTML Form: Submits Form
-    HTML Form->>script.js:validate(): Calls validate() function
-    script.js->>HTML Elements: Displays h2 and subjects elements
-    script.js->>HTML Elements: Sets opacity and transition for h2 and subjects
-    script.js->>HTML Elements: Makes elements with IDs 5-9 visible
-    script.js->>HTML Elements: Updates h2 with branch, year, and semester
-    script.js->>subjectsData: Accesses subjectsData based on branch, year, and semester
-    alt Valid Input
-        subjectsData->>script.js: Returns subject data
-        loop For Each Subject
-            script.js->>HTML Elements: Updates subject name
-        end
-        loop For Each Credit
-            script.js->>script.js: Sets window[`subject${i+1}_credits`]
-        end
-        alt Hide Elements
-            script.js->>HTML Elements: Hides specified elements
-        end
-        alt Show Elements
-            script.js->>HTML Elements: Shows specified elements
-        end
-    else Invalid Input
-        subjectsData-->>script.js: Returns undefined
-        script.js->>User: Alerts "Please Enter a Valid Input"
-        script.js->>HTML Elements: Hides h2 and subjects
-        script.js->>HTML Elements: Sets opacity to 0
-        script.js->>HTML Form: Redirects to index.html
-    end
-```
 
 **Explanation:**
 
@@ -81,28 +43,7 @@ sequenceDiagram
 
 This workflow is triggered when the user clicks the "Calculate GPA" button.
 
-```mermaid
-sequenceDiagram
-    participant User
-    participant HTML Form
-    participant script.js:calc_gpa()
-    participant HTML Elements
-    participant script.js:generateEffect()
 
-    User->>HTML Form: Enters Grades
-    User->>HTML Form: Clicks "Calculate GPA"
-    HTML Form->>script.js:calc_gpa(): Calls calc_gpa() function
-    script.js->>HTML Elements: Retrieves grades and credits
-    loop For Each Subject
-        script.js->>script.js: Calculates Total_Credits_Obtained and Total_credits
-    end
-    script.js->>script.js: Calculates Gpa
-    alt Gpa >= 9
-        script.js->>script.js: Calls generateEffect()
-        script.js->>HTML Elements: Triggers confetti effect
-    end
-    script.js->>HTML Elements: Updates result and mobile-result elements with GPA
-```
 
 **Explanation:**
 
@@ -123,19 +64,7 @@ sequenceDiagram
 
 This workflow is triggered when the calculated GPA is greater than or equal to 9.
 
-```mermaid
-sequenceDiagram
-    participant script.js:generateEffect()
-    participant confetti
-    participant requestAnimationFrame
 
-    script.js->>script.js: Sets duration and end time
-    loop Until Date.now() >= end
-        script.js->>confetti: Calls confetti() with angle 60 and origin x=0
-        script.js->>confetti: Calls confetti() with angle 120 and origin x=1
-        script.js->>requestAnimationFrame: Calls frame()
-    end
-```
 
 **Explanation:**
 
