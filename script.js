@@ -26,7 +26,7 @@ function validate(){
     const branch=document.getElementById("branch").value,year=document.getElementById("year").value,sem=document.getElementById("sem").value;
     document.getElementById("h2").innerHTML=` #${branch} / ${year} / ${sem}`;
     
-    const subjectsData = {
+const subjectsData = {
         'E1': {
             'Sem - 1': {
                 'CSE': {
@@ -39,7 +39,7 @@ function validate(){
                     credits: [4,4,1.5,2.5,4,1.5,1,3,1.5,0]
                 },
                 'EEE': {
-                    names: ["Differential Equations and Multivariable Calculus","Engineering Physics","Engineering Physics Lab","Engineering Graphics & Computer Drafting","Electrical Technology","Electrical Technology Lab","Introduction to Latest Technical Advancements","Programming & Data Structures","Programming & Data Structures Lab"],
+                    names: ["Differential Equations and Multivariable calculus","Engineering Physics","Engineering Physics Lab","Engineering Graphics & Computer Drafting","Electrical Technology","Electrical Technology Lab","Introduction to Latest Technical Advancements","Programming & Data Structures","Programming & Data Structures Lab"],
                     credits: [4,4,1.5,2.5,4,1.5,1,3,1.5,0]
                 },
                 'CIVIL': {
@@ -64,7 +64,7 @@ function validate(){
                     credits: [4,2,1.5,1.5,2.5,4,1.5,4,2.4,0]
                 },
                 'EEE': {
-                    names: ["Mathematical Methods","Digital Logic Design","Digital Logic Design Lab","Computational Lab","English Language communication Skills Lab-1","Electronic Devices and Circuits","Electronic Devices and Circuits Lab","Network Theory","Introduction to AI"],
+                    names: ["Linear Algebra & Numerical Methods","Digital Logic Design","Digital Logic Design Lab","Computational Lab","English Language communication skills lab 1","Electronic Devices and Circuits","Electronic Devices and Circuits Lab","Network Theory","Introduction to AI"],
                     credits: [4,4,1.5,1.5,2.5,4,1.5,4,1,0]
                 },
                 'CIVIL': {
@@ -117,7 +117,7 @@ function validate(){
                     hide: [9]
                 },
                 'EEE': {
-                    names: ["Robotics Laboratory","Power Systems - I","Machine Learning","Control Systems","Control Systems Lab","Linear Integrated Circuits","Linear Integrated Circuits Lab","Power Electronics","Power Electronics Lab"],
+                    names: ["Robotics Laboratory","Power Systems-I","Machine Learning","Control Systems","Control Systems Lab","Linear Integrated Circuits","Linear Integrated Circuits Lab","Power Electronics","Power Electronics Lab"],
                     credits: [1,4,3,4,1.5,4,1.5,4,1.5,0]
                 },
                 'CIVIL': {
@@ -144,7 +144,7 @@ function validate(){
                     hide: [9]
                 },
                 'EEE': {
-                    names: ["Digital Signal Processing","Power Systems - II","Power Systems Lab","English Language Communication Skills Lab- 2","Electrical Vehicles","Electrical Vehicles Lab","Embedded Systems","Embedded Systems Lab","Mini-Project-I","Product Design & Innovation"],
+                    names: ["Digital Signal Processing","Power Systems-II","Power Systems Lab","English Language Communication Skills Lab-2","Electrical Vehicles","Electrical Vehicles Lab","Embedded Systems","Embedded Systems Lab","Mini-Project-I (Socially Relevant Project)","Product Design & Innovation Lab"],
                     credits: [3,4,1.5,1.5,3,1.5,3,1.5,1,1],
                     show: [10]
                 },
@@ -171,7 +171,7 @@ function validate(){
                     hide: [8,9]
                 },
                 'EEE': {
-                    names: ["English-Language Communication skills Lab-3","Elective-1","Elective-2","Open Elective-1","Open Elective-2","Mini Project-II","","",""],
+                    names: ["English Language Communication skills lab-3","Elective-1","Elective-2","Open Elective-1","Open Elective-2","Mini Project-II","","",""],
                     credits: [1.5,3,3,3,3,1,0,0,0,0],
                     hide: [7,8,9]
                 },
@@ -200,7 +200,7 @@ function validate(){
                     hide: [6,7,8,9]
                 },
                 'EEE': {
-                    names: ["Elective - 3","Elective - 4","Open Elective - 3","Summer Internship Project","Project - 1","","","",""],
+                    names: ["Elective-3","Elective-4","Open Elective-3","Summer Internship Project","Project-I","","","",""],
                     credits: [3,3,3,3,4,0,0,0,0,0],
                     hide: [6,7,8,9]
                 },
@@ -227,7 +227,7 @@ function validate(){
                     hide: [5,6,7,8,9]
                 },
                 'EEE': {
-                    names: ["Community Service","Elective - 5","Open Elective - 4","Project - II & Dissertation","","","","",""],
+                    names: ["Community Service","Elective-5","Open Elective-4","Project-II & Dissertation","","","","",""],
                     credits: [2,3,3,6,0,0,0,0,0,0],
                     hide: [5,6,7,8,9]
                 },
