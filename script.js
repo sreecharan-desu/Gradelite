@@ -35,8 +35,9 @@ const subjectsData = {
         hide: [8, 9]
       },
       'ECE': {
-        names: ["Differential Equations and Multivariable calculus", "Engineering Physics", "Engineering Physics Lab", "Engineering Graphics and Computer Drafting", "Electrical Technology", "Electrical Technology Lab", "Introduction to Latest Technical Advancements", "Programming & Data Structures", "Programming & Data Structures Lab"],
-        credits: [4, 4, 1.5, 2.5, 4, 1.5, 1, 3, 1.5, 0]
+        names: ["Differential Equations and Multivariable Calculus", "Engineering Physics", "Engineering Physics Lab", "Engineering Graphics and Design", "Electrical Technology", "Electrical Technology Lab", "Introduction to Latest Technical Advancements", "Programming & Data Structures", "Programming & Data Structures Lab", "Biology for Engineers"],
+        credits: [4, 4, 1.5, 2.5, 4, 1.5, 1, 3, 1.5, 0],
+        hide: []
       },
       'EEE': {
         names: ["Differential Equations and Multivariable calculus", "Engineering Physics", "Engineering Physics Lab", "Engineering Graphics & Computer Drafting", "Electrical Technology", "Electrical Technology Lab", "Introduction to Latest Technical Advancements", "Programming & Data Structures", "Programming & Data Structures Lab"],
@@ -60,8 +61,9 @@ const subjectsData = {
         hide: [9]
       },
       'ECE': {
-        names: ["Mathematical Methods", "Object Oriented Programming", "Object Oriented Programming Laboratory", "Computational Lab", "English-Language Communication skills Lab-1", "Electronic Devices and Circuits", "Electronic Devices and Circuits Lab", "Network Theory", "Signals & Systems"],
-        credits: [4, 2, 1.5, 1.5, 2.5, 4, 1.5, 4, 2.4, 0]
+        names: ["Mathematical Methods", "Object Oriented Programming", "Object Oriented Programming Laboratory", "Computational Lab", "English-Language Communication Skills Lab-1", "Electronic Devices and Circuits", "Electronic Devices and Circuits Lab", "Network Theory", "Signals and Systems", ""],
+        credits: [4, 2, 1.5, 1.5, 2.5, 4, 1.5, 4, 4, 0],
+        hide: [9]
       },
       'EEE': {
         names: ["Linear Algebra & Numerical Methods", "Digital Logic Design", "Digital Logic Design Lab", "Computational Lab", "English Language communication skills lab 1", "Electronic Devices and Circuits", "Electronic Devices and Circuits Lab", "Network Theory", "Introduction to AI"],
@@ -87,8 +89,9 @@ const subjectsData = {
         hide: [9]
       },
       'ECE': {
-        names: ["Probability & Random Variables", "Internet of Things Lab", "Analog Electronic Circuits", "Analog Electronic Circuits Lab", "Digital Logic Design", "Digital Logic Design Lab", "Digital Signal Processing", "Digital Signal Processing Lab", "Control Systems"],
-        credits: [3, 1.5, 4, 1.5, 4, 1.5, 4, 1.5, 3, 0]
+        names: ["Probability & Random Variables", "Internet of Things Lab", "Analog Electronic Circuits", "Analog Electronic Circuits Lab", "Digital Logic Design", "Digital Logic Design Lab", "Digital Signal Processing", "Digital Signal Processing Lab", "Control Systems", ""],
+        credits: [3, 1.5, 4, 1.5, 4, 1.5, 4, 1.5, 3, 0],
+        hide: [9]
       },
       'EEE': {
         names: ["Probability & Random Variables", "Internet of Things Lab", "Analog Electronic Circuits", "Analog Electronic Circuits Lab", "Object Oriented Programming", "Object Oriented Programming Lab", "Signals & Systems", "Electrical Machines", "Electrical Machines Lab"],
@@ -112,8 +115,8 @@ const subjectsData = {
         hide: [9]
       },
       'ECE': {
-        names: ["Robotics Laboratory", "Communication Systems-1", "Communication Systems-1 Lab", "Digital System Design", "Digital System Design Lab", "Linear Integrated Circuits", "Linear Integrated Circuits Lab", "Electromagnetic Waves & Guided Media", ""],
-        credits: [2.5, 4, 1.5, 4, 1.5, 4, 1.5, 4, 0, 0],
+        names: ["Robotics Laboratory", "Communication Systems-1", "Communication Systems-1 Lab", "Digital System Design", "Digital System Design Lab", "Linear Integrated Circuits", "Linear Integrated Circuits Lab", "Electromagnetic Waves & Guided Media", "Foundations to Artificial Intelligence", ""],
+        credits: [2.5, 4, 1.5, 3, 1.5, 4, 1.5, 4, 1, 0],
         hide: [9]
       },
       'EEE': {
@@ -139,9 +142,9 @@ const subjectsData = {
         credits: [3, 3, 3, 3, 3, 1.5, 1.5, 1.5, 1.5, 0]
       },
       'ECE': {
-        names: ["Computer Networks", "Computer Organization & Architecture", "English-Language Communication skills Lab-2", "Communication Systems- 2", "Communication Systems -2 Lab", "Microprocessors,Microcontrollers & Computer Networks Lab", "Radio Frequency & Microwave Engg. Lab", "Mini-Project-I (Socially Relevant Project)", ""],
-        credits: [3, 4, 1.5, 4, 1.5, 1.5, 2.5, 1, 0, 0],
-        hide: [9]
+        names: ["Computer Networks", "Computer Organization & Design based on RISC V", "English-Language Communication Skills Lab-2", "Communication Systems-2", "Communication Systems-2 Lab", "Microprocessors Lab", "Radio Frequency & Microwave Engg. Lab", "Mini-Project-I (Socially Relevant Project)", "Product Design & Innovation Lab", "RF & Microwave Engineering"],
+        credits: [3, 3, 1.5, 4, 1.5, 1.5, 1.5, 1, 1, 2],
+        hide: []
       },
       'EEE': {
         names: ["Digital Signal Processing", "Power Systems-II", "Power Systems Lab", "English Language Communication Skills Lab-2", "Electrical Vehicles", "Electrical Vehicles Lab", "Embedded Systems", "Embedded Systems Lab", "Mini-Project-I (Socially Relevant Project)", "Product Design & Innovation Lab"],
@@ -166,8 +169,8 @@ const subjectsData = {
         hide: [8]
       },
       'ECE': {
-        names: ["English-Language Communication skills Lab-3", "Product Design & Innovation", "Elective-1", "Elective-2", "Open Elective-1", "Open Elective-2", "Mini Project-II", "", ""],
-        credits: [1.5, 1, 3, 3, 3, 3, 1.5, 0, 0, 0],
+        names: ["English-Language Communication Skills Lab-3", "Indian Constitution", "Elective-1", "Elective-2", "Open Elective-1", "Open Elective-2", "Mini Project-II", "Career Development Course", "", ""],
+        credits: [1.5, 0, 3, 3, 3, 3, 1.5, 0, 0, 0],
         hide: [8, 9]
       },
       'EEE': {
@@ -195,8 +198,8 @@ const subjectsData = {
         hide: [6, 7, 8, 9]
       },
       'ECE': {
-        names: ["Elective-3", "Elective-4", "Open Elective-3", "Summer Internship Project", "Project I", "", "", "", ""],
-        credits: [3, 3, 3, 3, 0, 0, 0, 0, 0, 0],
+        names: ["Elective-3", "Elective-4", "Open Elective-3", "Summer Internship Project", "Project I", "Environmental Science", "", "", "", ""],
+        credits: [3, 3, 3, 3, 4, 0, 0, 0, 0, 0],
         hide: [6, 7, 8, 9]
       },
       'EEE': {
@@ -222,7 +225,7 @@ const subjectsData = {
         hide: [6, 7, 8, 9]
       },
       'ECE': {
-        names: ["Community Service", "Elective-5", "Open Elective-4", "Project-II & Dissertation", "", "", "", "", ""],
+        names: ["Community Service", "Elective-5", "Open Elective-4", "Project-II & Dissertation", "", "", "", "", "", ""],
         credits: [2, 3, 3, 6, 0, 0, 0, 0, 0, 0],
         hide: [5, 6, 7, 8, 9]
       },
