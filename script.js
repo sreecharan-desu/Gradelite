@@ -121,7 +121,7 @@ function validate(){
                     credits: [1,4,3,4,1.5,4,1.5,4,1.5,0]
                 },
                 'CIVIL': {
-                    names: ["Hydraulics Engineering","Mechanics of Materials-II","Soil Mechanics","Structural Analysis","Surveying-II","Water Resources Engineering","Concrete Technology Lab","Hydraulics Engineering Lab",""],
+                    names: ["Hydraulics Engineering","Environmental Engineering-I","Geo – Technical Engineering – I","Structural Analysis","Water Resources Engineering","Introduction to Probability and Statistics","Hydraulics Engineering Lab","Geotechnical EngineeringLab",""],
                     credits: [3,3,4,4,3,3,1.5,1.5,0,0],
                     hide: [9]
                 },
