@@ -1,31 +1,4 @@
-if(window.location.href != "https://gradelite.sreecharandesu.in/") {
-    window.location.replace("https://gradelite.sreecharandesu.in");
-}
-window.scrollTo(0,0);
 
-function generateEffect(){
-    var duration = 3 * 1000, end = Date.now() + duration;
-    (function frame(){
-        confetti({particleCount:10,angle:60,spread:100,origin:{x:0}});
-        confetti({particleCount:10,angle:120,spread:100,origin:{x:1}});
-        if(Date.now()<end) requestAnimationFrame(frame);
-    }());
-}
-
-document.getElementById("10").style.display="none";
-const subjects=[];
-for(let i=1;i<=10;i++) subjects.push(document.getElementById(`Subject${i}`));
-
-function validate(){
-    document.getElementById("h2").style.display=document.getElementById("subjects").style.display="block";
-    document.getElementById("h2").style.opacity=document.getElementById("subjects").style.opacity=1;
-    document.getElementById("h2").style.transition=document.getElementById("subjects").style.transition="0.4s ease-in-out";
-    
-    for(let i=5;i<=9;i++) document.getElementById(i).style.display="";
-    
-    const branch=document.getElementById("branch").value,year=document.getElementById("year").value,sem=document.getElementById("sem").value;
-    document.getElementById("h2").innerHTML=` #${branch} / ${year} / ${sem}`;
-    
 const subjectsData = {
   'E1': {
     'Sem - 1': {
@@ -247,29 +220,89 @@ const subjectsData = {
     }
   }
 };
-    if(subjectsData[year] && subjectsData[year][sem] && subjectsData[year][sem][branch]) {
-        const data = subjectsData[year][sem][branch];
-        subjects.forEach((sub,i) => sub.innerHTML = data.names[i] ? `# ${data.names[i]}` : "");
-        data.credits.forEach((cred,i) => window[`subject${i+1}_credits`] = cred);
-        if(data.hide) data.hide.forEach(i => document.getElementById(i).style.display="none");
-        if(data.show) data.show.forEach(i => document.getElementById(i).style.display="");
+
+
+if (window.location.href != "https://gradelite.sreecharandesu.in/") {
+    window.location.replace("https://gradelite.sreecharandesu.in");
+}
+window.scrollTo(0, 0);
+
+function generateEffect() {
+    var duration = 3 * 1000, end = Date.now() + duration;
+    (function frame() {
+        confetti({ particleCount: 10, angle: 60, spread: 100, origin: { x: 0 } });
+        confetti({ particleCount: 10, angle: 120, spread: 100, origin: { x: 1 } });
+        if (Date.now() < end) requestAnimationFrame(frame);
+    }());
+}
+
+const subjects = [];
+for (let i = 1; i <= 10; i++) subjects.push(document.getElementById(`Subject${i}`));
+
+function validate() {
+    document.getElementById("h2").style.display = document.getElementById("subjects").style.display = "block";
+    document.getElementById("h2").style.opacity = document.getElementById("subjects").style.opacity = 1;
+    document.getElementById("h2").style.transition = document.getElementById("subjects").style.transition = "0.4s ease-in-out";
+
+    // Reset: hide all subject rows initially
+    for (let i = 1; i <= 10; i++) {
+        document.getElementById(i).style.display = "none";
+    }
+
+    const branch = document.getElementById("branch").value,
+          year   = document.getElementById("year").value,
+          sem    = document.getElementById("sem").value;
+
+    document.getElementById("h2").innerHTML = ` #${branch} / ${year} / ${sem}`;
+
+    const data = subjectsData?.[year]?.[sem]?.[branch];
+
+    if (data) {
+        // Fill subjects dynamically
+        subjects.forEach((sub, i) => {
+            if (data.names[i]) {
+                sub.innerHTML = `# ${data.names[i]}`;
+                document.getElementById(i + 1).style.display = ""; // show this row
+            } else {
+                sub.innerHTML = "";
+            }
+        });
+
+        // Assign credits
+        data.credits.forEach((cred, i) => window[`subject${i + 1}_credits`] = cred);
+
+        // Apply hide/show overrides
+        if (data.hide) data.hide.forEach(i => document.getElementById(i).style.display = "none");
+        if (data.show) data.show.forEach(i => document.getElementById(i).style.display = "");
     } else {
         alert("Please Enter a Valid Input");
-        document.getElementById("h2").style.display=document.getElementById("subjects").style.display="none";
-        document.getElementById("h2").style.opacity=document.getElementById("subjects").style.opacity=0;
-        location.href="index.html";
+        document.getElementById("h2").style.display = document.getElementById("subjects").style.display = "none";
+        document.getElementById("h2").style.opacity = document.getElementById("subjects").style.opacity = 0;
+        location.href = "index.html";
     }
 }
 
-function calc_gpa(){
+function calc_gpa() {
     let Total_Credits_Obtained = 0, Total_credits = 0;
-    for(let i=1;i<=10;i++){
+
+    for (let i = 1; i <= 10; i++) {
+        // Skip hidden subjects
+        if (document.getElementById(i).style.display === "none") continue;
+
         const grade = parseFloat(document.getElementById(`subject${i}`).value) || 0;
         const credit = window[`subject${i}_credits`] || 0;
+
         Total_Credits_Obtained += grade * credit;
         Total_credits += credit;
     }
+
     const Gpa = Total_Credits_Obtained / Total_credits;
-    if(Gpa>=9) generateEffect();
-    document.getElementById("result").innerHTML = document.getElementById("mobile-result").innerHTML = `Your Gpa : ${Gpa}`;
+    if (Gpa >= 9) generateEffect();
+    document.getElementById("result").innerHTML =
+    document.getElementById("mobile-result").innerHTML = `Your Gpa : ${Gpa}`;
 }
+
+
+
+
+
