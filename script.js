@@ -60,8 +60,8 @@ function validate(){
                     hide: [9]
                 },
                 'ECE': {
-                    names: ["Mathematical Methods","Object Oriented Programming","Object Oriented Programming Laboratory","Computational Lab","English-Language Communication skills Lab-1","Electronic Devices and Circuits","Electronic Devices and Circuits Lab","Network Theory","Engineering Graphics and Design"],
-                    credits: [4,2,1.5,1.5,2.5,4,1.5,4,2.5,0]
+                    names: ["Mathematical Methods","Object Oriented Programming","Object Oriented Programming Laboratory","Computational Lab","English-Language Communication skills Lab-1","Electronic Devices and Circuits","Electronic Devices and Circuits Lab","Network Theory","Signals & Systems"],
+                    credits: [4,2,1.5,1.5,2.5,4,1.5,4,2.4,0]
                 },
                 'EEE': {
                     names: ["Mathematical Methods","Digital Logic Design","Digital Logic Design Lab","Computational Lab","English Language communication Skills Lab-1","Electronic Devices and Circuits","Electronic Devices and Circuits Lab","Network Theory","Introduction to AI"],
