@@ -12,7 +12,7 @@ function generateEffect(){
     }());
 }
 
-document.getElementById("10").style.display="none";
+// document.getElementById("10").style.display="none";
 const subjects=[];
 for(let i=1;i<=10;i++) subjects.push(document.getElementById(`Subject${i}`));
 
